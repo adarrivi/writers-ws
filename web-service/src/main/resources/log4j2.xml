@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<Configuration status="WARN">
+    <Appenders>
+        <RollingFile name="WriterFile" fileName="${sys:catalina.home}/logs/writer-ws.log"
+            filePattern="${sys:catalina.home}/logs/writer-ws-%d{yy-MM-dd}.log.gz" ignoreExceptions="false"
+            append="false">
+            <PatternLayout pattern="%d %-5p [%t] %c{1}:%L - %m%n" />
+            <Policies>
+                <SizeBasedTriggeringPolicy size="40 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="20" />
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Logger name="org.adarrivi.writer" level="DEBUG" additivity="false">
+            <AppenderRef ref="WriterFile" />
+        </Logger>
+        <Root level="ERROR">
+            <AppenderRef ref="WriterFile" />
+        </Root>
+    </Loggers>
+</Configuration>

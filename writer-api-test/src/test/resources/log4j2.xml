@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="stdout" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d %5p [%t] %c{1}:%L - %m%n" />
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="org.adarrivi.writer" level="DEBUG" additivity="false">
+            <AppenderRef ref="stdout" />
+        </Logger>
+        <Root level="ERROR">
+            <AppenderRef ref="stdout" />
+        </Root>
+    </Loggers>
+</Configuration>
